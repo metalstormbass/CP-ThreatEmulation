@@ -50,12 +50,16 @@ def scanfile(api_key, url):
     print "\n"
     print "\n"    
     print "\n"
-    print response_json['response'][0]['status']['message']
+    print "Message: " + response_json['response'][0]['status']['message']
     print "\n"
     print "Threat Emulation Results:"
-    print response_json['response'][0]['te']['images'][0]['report']['verdict']
+    print "Verdict: " + response_json['response'][0]['te']['images'][0]['report']['verdict']
+    print "Status: " +response_json['response'][0]['te']['images'][0]['status']
     print "\n"
-    #print "Anti-Virus Results"
-    #print response_json['response'][0]['av'][0]['status'][0]['message']
+    print "Anti-Virus Results:"
+    print "Message: " + response_json['response'][0]['av']['status']['message']
+    print "\n"
+    print "\n"    
+    print "\n"
     #except:
     #   print "Query Failed. Please try again."

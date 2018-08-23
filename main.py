@@ -31,7 +31,7 @@ while selection:
     print "Select option: \n"
     print("""
     1.Scan a file
-    2.Scan a directory - Fuction still in development
+    2.Scan a directory - Function still in development
     3.Exit/Quit
     """)
     selection=raw_input("Select a task number: ")
