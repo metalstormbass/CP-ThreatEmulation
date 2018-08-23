@@ -58,6 +58,7 @@ def scanfile(api_key, url):
         print "\n"
         print "Anti-Virus Results:"
         print "Message: " + response_json['response'][0]['av']['status']['message']
+        print "Label: " + response_json['response'][0]['av']['status']['label']
         print "\n"
         print "\n"    
         print "\n"
