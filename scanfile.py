@@ -43,7 +43,7 @@ def scanfile(api_key, url):
     
     #Send the request and parse the reply
     
-    #try:
+    try:
     print "Scanning Now..."
     response = requests.post(url+"query", json=data, headers=headers, verify=False)
     response_json = json.loads(response.content)
@@ -61,5 +61,5 @@ def scanfile(api_key, url):
     print "\n"
     print "\n"    
     print "\n"
-    #except:
-    #   print "Query Failed. Please try again."
+    except:
+       print "Query Failed. Please try again."
