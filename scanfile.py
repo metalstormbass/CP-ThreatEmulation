@@ -44,22 +44,22 @@ def scanfile(api_key, url):
     #Send the request and parse the reply
     
     try:
-    print "Scanning Now..."
-    response = requests.post(url+"query", json=data, headers=headers, verify=False)
-    response_json = json.loads(response.content)
-    print "\n"
-    print "\n"    
-    print "\n"
-    print "Message: " + response_json['response'][0]['status']['message']
-    print "\n"
-    print "Threat Emulation Results:"
-    print "Verdict: " + response_json['response'][0]['te']['images'][0]['report']['verdict']
-    print "Status: " +response_json['response'][0]['te']['images'][0]['status']
-    print "\n"
-    print "Anti-Virus Results:"
-    print "Message: " + response_json['response'][0]['av']['status']['message']
-    print "\n"
-    print "\n"    
-    print "\n"
+        print "Scanning Now..."
+        response = requests.post(url+"query", json=data, headers=headers, verify=False)
+        response_json = json.loads(response.content)
+        print "\n"
+        print "\n"    
+        print "\n"
+        print "Message: " + response_json['response'][0]['status']['message']
+        print "\n"
+        print "Threat Emulation Results:"
+        print "Verdict: " + response_json['response'][0]['te']['images'][0]['report']['verdict']
+        print "Status: " +response_json['response'][0]['te']['images'][0]['status']
+        print "\n"
+        print "Anti-Virus Results:"
+        print "Message: " + response_json['response'][0]['av']['status']['message']
+        print "\n"
+        print "\n"    
+        print "\n"
     except:
-       print "Query Failed. Please try again."
+        print "Query Failed. Please try again."
