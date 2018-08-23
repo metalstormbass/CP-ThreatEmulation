@@ -5,7 +5,6 @@ import sys
 
 #Global variables
 url = "https://te.checkpoint.com/tecloud/api/v1/file/"
-te_cookie = "tec"
 
 print'''
    ____ _               _      ____       _       _                                
@@ -21,26 +20,24 @@ print'''
 print "\n"
 print "V 1.0 - Written by Michael Braun"
 print "\n"
-print "\n"
 
 #User input variables
 api_key = raw_input("Enter your Check Point Threat Emulation API key: ")
+print "\n"
 
 #Menu Options
-
-print "Select option: \n"
-
 selection=True
 while selection:
+    print "Select option: \n"
     print("""
     1.Scan a file
-    2.Scan a directory
+    2.Scan a directory - Fuction still in development
     3.Exit/Quit
     """)
     selection=raw_input("Select a task number: ")
     if selection=="1":
       print("\nScan a file")
-      scanfile(api_key, url, te_cookie)
+      scanfile(api_key, url)
     elif selection=="2":
       print("\nScan a directory - Function still in development")
     elif selection=="3":
