@@ -48,7 +48,14 @@ def scanfile(api_key, url):
     response = requests.post(url+"query", json=data, headers=headers, verify=False)
     response_json = json.loads(response.content)
     print "\n"
+    print "\n"    
+    print "\n"
     print response_json['response'][0]['status']['message']
     print "\n"
+    print "Threat Emulation Results:"
+    print response_json['response'][0]['te']['images'][0]['report']['verdict']
+    print "\n"
+    #print "Anti-Virus Results"
+    #print response_json['response'][0]['av'][0]['status'][0]['message']
     #except:
     #   print "Query Failed. Please try again."
