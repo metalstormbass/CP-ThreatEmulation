@@ -2,7 +2,6 @@
 
 from scanfile import scanfile
 import sys
-import time
 
 #Global variables
 url = "https://te.checkpoint.com/tecloud/api/v1/file/"
@@ -27,6 +26,8 @@ print "\n"
 #User input variables
 api_key = raw_input("Enter your Check Point Threat Emulation API key: ")
 
+#Menu Options
+
 print "Select option: \n"
 
 selection=True
@@ -44,7 +45,6 @@ while selection:
       print("\nScan a directory - Function still in development")
     elif selection=="3":
       print("\nGoodbye")
-      time.sleep(1)
       sys.exit() 
       selection = None
     else:

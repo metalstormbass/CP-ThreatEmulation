@@ -16,37 +16,46 @@ from functions import file_name
 #remove https warning
 requests.packages.urllib3.disable_warnings()
 
+#Scan file method
 def scanfile(api_key, url, te_cookie):
     file_path = raw_input("Enter full file path (Use forward slashes, even in Windows): ")
     
-    
-    
-    data = '''
-    
+ 
+   
+    data = ''' 
     {
         "request": [
             {
-                "md5": "'''+ md5(file_path) +'''",
+                "md5": "8dfa1440953c3d93daafeae4a5daa326",
                 "features": [
-                "te",
-                "av"
-                "extraction"
+                    "te",
+                   "av"
                 ],
-                "file_name":  "'''+ file_name(file_path) +'''"
                 "te": {
-                "reports": [
-                    "xml",
-                    "pdf"
-                ]
+                    "reports": [
+                        "xml",
+                        "pdf"
+                    ]
                 }
-                "extraction": {
-                "method": "pdf"
+            },
+            {
+                "md5": "521c7603a6892171b3b8e912c973ec87",
+                "features": [
+                    "te",
+                   "av"
+                ],
+                "te": {
+                    "reports": [
+                        "xml",
+                        "pdf"
+                    ]
                 }
             }
         ]
     }
     '''
-    data_json = json.dumps(data)
+    
+    data_json = json.loads(data)
     headers = {
             "User-Agent": "python-api-wrapper",
             "Accept": "*/*",
@@ -56,10 +65,7 @@ def scanfile(api_key, url, te_cookie):
             "te_cookie": te_cookie
         }
     
-    print data_json
-    print data
-    print headers
     
-    #response = requests.post(url+"query", json=data_json, headers=str(headers), verify=False)
-    #print response
+    response = requests.post(url+"query", json=data_json, headers=str(headers), verify=False)
+    print response
     
