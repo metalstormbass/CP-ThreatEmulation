@@ -36,12 +36,15 @@ def upload(api_key, url, file_path, md5sum, filename):
         }
     }
     }
-
+    
+    files = {
+     'json': (None, json.dumps(data), 'application/json'),
+     'file': (open(file_path, 'rb'), 'application/octet-stream')
+    }
     #Assemble the header
-    headers = {"Content-Type": "application/x-www-form-urlencoded","Authorization": api_key}
+    headers = {"Authorization": api_key}
     
     #send request
-    uploadfile = {'upload_file': open(file_path,'rb')}
     
-    response = requests.post(url+"upload", headers = headers, json=data, files=uploadfile)
+    response = requests.post(url+"upload", headers = headers, files=files)
     print response.content

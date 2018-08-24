@@ -40,5 +40,5 @@ def return_to_menu():
       sys.exit() 
       selection = None
     else:
-       print("\n Not Valid Choice Try again")
+       print("\n Not Valid Choice. Try again.")
     
