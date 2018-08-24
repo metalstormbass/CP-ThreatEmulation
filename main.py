@@ -1,7 +1,8 @@
 #!/bin/python
+import sys
 
 from scanfile import scanfile
-import sys
+from check_quota import check_quota
 
 #Global variables
 url = "https://te.checkpoint.com/tecloud/api/v1/file/"
@@ -30,17 +31,20 @@ selection=True
 while selection:
     print "Select option: \n"
     print("""
-    1.Scan a file
-    2.Scan a directory - Function still in development
-    3.Exit/Quit
+    1.Check Threat Emulation Quota Status
+    2.Scan a file
+    3.Scan a directory - Function still in development
+    4.Exit/Quit
     """)
     selection=raw_input("Select a task number: ")
     if selection=="1":
-      print("\nScan a file")
-      scanfile(api_key, url)
+      print("\nCheck Threat Emulation Quota Status")
+      check_quota(api_key, url)
     elif selection=="2":
-      print("\nScan a directory - Function still in development")
+      print("\nScan a file")
     elif selection=="3":
+      print("\nScan a directory - Function still in development")
+    elif selection=="4":
       print("\nGoodbye")
       sys.exit() 
       selection = None

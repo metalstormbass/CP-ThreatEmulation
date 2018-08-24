@@ -1,4 +1,8 @@
+#!/bin/python
+
 import hashlib
+import sys
+
 #MD5 file hashing
 def md5(file_path):
     hash_md5 = hashlib.md5()
@@ -11,3 +15,5 @@ def file_name(file_path):
     filename_split = file_path.split("/")
     filename = str(filename_split[-1])
     return filename
+def return_to_menu:
+    print "Return to "

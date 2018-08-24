@@ -38,7 +38,7 @@ def scanfile(api_key, url):
         ]
         }
         
-    #Assemble the heaer
+    #Assemble the header
     headers = {"User-Agent": "python-api-wrapper", "Accept": "*/*","Content-Type": "application/json", "Content-Length": str(len(data)),"Authorization": api_key}
     
     #Send the request and parse the reply
@@ -47,7 +47,6 @@ def scanfile(api_key, url):
         print "Scanning Now..."
         response = requests.post(url+"query", json=data, headers=headers, verify=False)
         response_json = json.loads(response.content)
-        print "\n"
         print "\n"    
         print "\n"
         print "Message: " + response_json['response'][0]['status']['message']
@@ -64,3 +63,4 @@ def scanfile(api_key, url):
         print "\n"
     except:
         print "Query Failed. Please try again."
+        
