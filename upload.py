@@ -13,7 +13,6 @@ requests.packages.urllib3.disable_warnings()
 def upload(api_key, url, file_path, md5sum, filename):
     #Retrieve Extension
     file_ext=file_extension(filename)
-    print file_ext
     
     #Input variables into JSON
     data ={
@@ -39,8 +38,10 @@ def upload(api_key, url, file_path, md5sum, filename):
     }
 
     #Assemble the header
-    headers = {"User-Agent": "python-api-wrapper", "Accept": "*/*","Content-Type": "application/x-www-form-urlencoded","Authorization": api_key}
+    headers = {"Content-Type": "application/x-www-form-urlencoded","Authorization": api_key}
     
+    #send request
+    uploadfile = {'upload_file': open(file_path,'rb')}
     
-    #with open(file_path, 'rb') as f:
-    #    response = requests.post(url+"upload", headers = headers, files={file_path: f})
+    response = requests.post(url+"upload", headers = headers, json=data, files=uploadfile)
+    print response.content

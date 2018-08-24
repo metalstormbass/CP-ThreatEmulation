@@ -21,7 +21,7 @@ print "\n"
 #Scan file method
 def scanfile(api_key, url):
     #Prompt user for file path
-    file_path = raw_input("Enter full file path (Use forward slashes, even in Windows): ")
+    file_path = raw_input("Enter full file path (Use double backslashes for Windows. C:\\\\test.xlsx): ")
        
     #Parse Input and perform error checking 
     while True:
@@ -29,7 +29,7 @@ def scanfile(api_key, url):
             md5sum =md5(file_path)
         except: 
             print "There was an error, please check your input"
-            file_path = raw_input("Enter full file path (Use forward slashes, even in Windows): ")
+            file_path = raw_input("Enter full file path (Use double backslashes for Windows. C:\\\\test.xlsx): ")
         else:
             break
 
@@ -90,22 +90,24 @@ def scanfile(api_key, url):
 
     #Checking to see if user wants to upload file.
     if status_code == 1004:
-        print "Would you like to upload your file for emulation?"
-
-        print("""
-        1.Upload file for emulation
-        2.Do not upload file
-        """)
-        selection=raw_input("Select a task number: ")
-        if selection=="1":
-          print "\nUpload File"
-          upload(api_key, url, file_path, md5sum, filename)
-        elif selection=="2":
-          print("\n")
-          return_to_menu
-          selection = None
-        else:
-           print("\n Not Valid Choice Try again")
+        while True:
+            print "Would you like to upload your file for emulation?"
+            print("""
+            1. Upload file for emulation
+            2. Do not upload file
+            """)
+            selection=raw_input("Select a task number: ")
+            if selection=="1":
+                print "\nUploading File..."
+                upload(api_key, url, file_path, md5sum, filename)
+                return
+            elif selection=="2":
+                print("\n")
+                return_to_menu()
+                return
+                selection = None
+            else:
+                print("\n Not Valid Choice Try again")
 
     print "\n"
     return_to_menu()

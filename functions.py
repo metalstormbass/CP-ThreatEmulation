@@ -3,6 +3,7 @@
 import hashlib
 import sys
 
+
 #MD5 file hashing
 def md5(file_path):
     hash_md5 = hashlib.md5()
@@ -27,16 +28,17 @@ def file_extension(filename):
 def return_to_menu():
     print "Return to main menu?"
     print("""
-    1.Return to main menu
-    2.Exit/Quit
+    1. Return to main menu
+    2. Exit/Quit
     """)
     selection=raw_input("Select a task number: ")
     if selection=="1":
       print "\n"
-      return()
+      return
     elif selection=="2":
       print("\nGoodbye")
       sys.exit() 
       selection = None
     else:
        print("\n Not Valid Choice Try again")
+    
