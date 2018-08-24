@@ -10,11 +10,19 @@ def md5(file_path):
         for chunk in iter(lambda: f.read(4096), b""):
             hash_md5.update(chunk)
     return hash_md5.hexdigest()
+
 #File name parsing
 def file_name(file_path):
     filename_split = file_path.split("/")
     filename = str(filename_split[-1])
     return filename
+
+#Find file extension
+def file_extension(filename):
+    file_ext_split = filename.split(".")
+    file_ext="."+str(file_ext_split[-1])
+    return file_ext
+
 #Function to return to main menu
 def return_to_menu():
     print "Return to main menu?"
