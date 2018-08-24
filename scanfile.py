@@ -14,12 +14,22 @@ requests.packages.urllib3.disable_warnings()
 print "\n"
 #Scan file method
 def scanfile(api_key, url):
+    #Prompt user for file path
     file_path = raw_input("Enter full file path (Use forward slashes, even in Windows): ")
-   
-    #Parse Input from user and place into JSON request
-    md5sum =md5(file_path)
+       
+    #Parse Input and perform error checking 
+    while True:
+        try:
+            md5sum =md5(file_path)
+        except: 
+            print "There was an error, please check your input"
+            file_path = raw_input("Enter full file path (Use forward slashes, even in Windows): ")
+        else:
+            break
+    
     filename=file_name(file_path)
     
+    #Input user information into JSON
     data ={
         "request": [
             {
@@ -61,5 +71,26 @@ def scanfile(api_key, url):
         print "\n"
     except:
         print "Query Failed. Please try again."
-        
+    
+    status_code = response_json['response'][0]['status']['message']
+    print status_code
+    if status_code == 1004:
+        print "Would you like to upload your file for emulation?"
+
+        print("""
+        1.Upload file for emulation
+        2.Do not upload file
+        """)
+        selection=raw_input("Select a task number: ")
+        if selection=="1":
+          print "\n"
+          return()
+        elif selection=="4":
+          print("\n")
+          return_to_menu
+          selection = None
+        else:
+           print("\n Not Valid Choice Try again")
+
+    
     return_to_menu()

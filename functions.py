@@ -15,6 +15,7 @@ def file_name(file_path):
     filename_split = file_path.split("/")
     filename = str(filename_split[-1])
     return filename
+#Function to return to main menu
 def return_to_menu():
     print "Return to main menu?"
     print("""
@@ -25,7 +26,7 @@ def return_to_menu():
     if selection=="1":
       print "\n"
       return()
-    elif selection=="4":
+    elif selection=="2":
       print("\nGoodbye")
       sys.exit() 
       selection = None
