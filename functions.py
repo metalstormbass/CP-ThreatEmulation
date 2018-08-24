@@ -15,5 +15,19 @@ def file_name(file_path):
     filename_split = file_path.split("/")
     filename = str(filename_split[-1])
     return filename
-def return_to_menu:
-    print "Return to "
+def return_to_menu():
+    print "Return to main menu?"
+    print("""
+    1.Return to main menu
+    2.Exit/Quit
+    """)
+    selection=raw_input("Select a task number: ")
+    if selection=="1":
+      print "\n"
+      return()
+    elif selection=="4":
+      print("\nGoodbye")
+      sys.exit() 
+      selection = None
+    else:
+       print("\n Not Valid Choice Try again")

@@ -42,6 +42,7 @@ while selection:
       check_quota(api_key, url)
     elif selection=="2":
       print("\nScan a file")
+      scanfile(api_key, url)
     elif selection=="3":
       print("\nScan a directory - Function still in development")
     elif selection=="4":

@@ -7,6 +7,7 @@ import time
 
 from functions import md5
 from functions import file_name
+from functions import return_to_menu
 
 #remove https warning
 requests.packages.urllib3.disable_warnings()
@@ -48,7 +49,6 @@ def scanfile(api_key, url):
         response = requests.post(url+"query", json=data, headers=headers, verify=False)
         response_json = json.loads(response.content)
         print "\n"    
-        print "\n"
         print "Message: " + response_json['response'][0]['status']['message']
         print "\n"
         print "Threat Emulation Results:"
@@ -59,8 +59,7 @@ def scanfile(api_key, url):
         print "Message: " + response_json['response'][0]['av']['status']['message']
         print "Label: " + response_json['response'][0]['av']['status']['label']
         print "\n"
-        print "\n"    
-        print "\n"
     except:
         print "Query Failed. Please try again."
         
+    return_to_menu()
