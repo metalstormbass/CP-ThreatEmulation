@@ -15,7 +15,7 @@ def menu():
         print("""
         1. Check Threat Emulation Quota Status
         2. Scan a file
-        3. Scan a directory - Function still in development
+        3. Check Results of Uploaded Files
         4. Exit/Quit
         """)
         selection=raw_input("Select a task number: ")
@@ -26,7 +26,7 @@ def menu():
           print("\nScan a file")
           scanfile(api_key, url)
         elif selection=="3":
-          print("\nScan a directory - Function still in development")
+          print("\nCheck Results of Uploaded Files")
         elif selection=="4":
           print("\nGoodbye")
           sys.exit() 

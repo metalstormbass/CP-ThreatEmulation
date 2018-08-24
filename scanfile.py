@@ -29,7 +29,7 @@ def scanfile(api_key, url):
             md5sum =md5(file_path)
         except: 
             print "There was an error, please check your input"
-            file_path = raw_input("Enter full file path (Use use forward slashes for Windows)): ")
+            file_path = raw_input("Enter full file path (Use use forward slashes for Windows): ")
         else:
             break
 

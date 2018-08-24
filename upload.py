@@ -45,8 +45,10 @@ def upload(api_key, url, file_path, md5sum, filename):
     #Assemble the header
     headers = {"Authorization": api_key}
     
-    print files
     #send request
-    
     response = requests.post(url+"upload", headers = headers, files=files)
-    print response.content
+    response_json = json.loads(response.content)
+    print "\n"
+    print "Message: " + response_json['response']['status']['message']
+    print "\n"
+    print "Make note of the MD5 sum to check progress: " + md5sum
