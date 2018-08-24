@@ -21,7 +21,7 @@ print "\n"
 #Scan file method
 def scanfile(api_key, url):
     #Prompt user for file path
-    file_path = raw_input("Enter full file path (Use double backslashes for Windows. C:\\\\test.xlsx): ")
+    file_path = raw_input("Enter full file path (Use use forward slashes for Windows): ")
        
     #Parse Input and perform error checking 
     while True:
@@ -29,7 +29,7 @@ def scanfile(api_key, url):
             md5sum =md5(file_path)
         except: 
             print "There was an error, please check your input"
-            file_path = raw_input("Enter full file path (Use double backslashes for Windows. C:\\\\test.xlsx): ")
+            file_path = raw_input("Enter full file path (Use use forward slashes for Windows)): ")
         else:
             break
 

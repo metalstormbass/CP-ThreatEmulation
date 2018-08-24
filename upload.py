@@ -14,6 +14,7 @@ def upload(api_key, url, file_path, md5sum, filename):
     #Retrieve Extension
     file_ext=file_extension(filename)
     
+    print filename
     #Input variables into JSON
     data ={
     "request": {
@@ -39,11 +40,12 @@ def upload(api_key, url, file_path, md5sum, filename):
     
     files = {
      'json': (None, json.dumps(data), 'application/json'),
-     'file': (open(file_path, 'rb'), 'application/octet-stream')
+     'file': (filename, open(file_path, 'rb'), 'application/octet-stream')
     }
     #Assemble the header
     headers = {"Authorization": api_key}
     
+    print files
     #send request
     
     response = requests.post(url+"upload", headers = headers, files=files)
