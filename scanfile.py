@@ -82,12 +82,12 @@ def scanfile(api_key, url):
     if av_label == "FOUND":
         print "Signature Name: " + response_json['response'][0]['av']['malware_info']['signature_name']
         print "Severity: " + str(response_json['response'][0]['av']['malware_info']['severity'])
-        print "Confidence: " + str(response_json['response'][0]['av']['status']['confidence'])
+        print "Confidence: " + str(response_json['response'][0]['av']['malware_info']['confidence'])
     print "\n"
     #except:
      #   print "Query Failed. Please try again."
    
-'''
+
     #Checking to see if user wants to upload file.
     if status_code == 1004:
         print "Would you like to upload your file for emulation?"
@@ -109,4 +109,4 @@ def scanfile(api_key, url):
 
     print "\n"
     return_to_menu()
-'''    
+  
