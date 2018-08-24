@@ -14,6 +14,7 @@ def check_quota(api_key,url):
         response = requests.get(url+"quota", headers=headers, verify=False)
         response_json = json.loads(response.content)
         print "Threat Emulation Quota Statistics"
+        print "\n"
         print  "Current Status: " + response_json['response'][0]['action']
         print "\n"
         print "Monthly"
