@@ -60,32 +60,32 @@ def scanfile(api_key, url):
     
     #Send the request and parse the reply
     
-    #try:
-    #Define Global variable
-    global status_code
-    print "\n"
-    print "Scanning Now..."
-    response = requests.post(url+"query", json=data, headers=headers, verify=False)
-    response_json = json.loads(response.content)
-    status_code = response_json['response'][0]['status']['code']
-    print "\n"    
-    print "Message: " + response_json['response'][0]['status']['message']
-    print "\n"
-    print "Threat Emulation Results:"
-    print "Verdict: " + response_json['response'][0]['te']['images'][0]['report']['verdict']
-    print "Status: " +response_json['response'][0]['te']['images'][0]['status']
-    print "\n"
-    print "Anti-Virus Results:"
-    print "Message: " + response_json['response'][0]['av']['status']['message']
-    av_label = response_json['response'][0]['av']['status']['label']
-    print "Label: " + av_label
-    if av_label == "FOUND":
-        print "Signature Name: " + response_json['response'][0]['av']['malware_info']['signature_name']
-        print "Severity: " + str(response_json['response'][0]['av']['malware_info']['severity'])
-        print "Confidence: " + str(response_json['response'][0]['av']['malware_info']['confidence'])
-    print "\n"
-    #except:
-     #   print "Query Failed. Please try again."
+    try:
+        #Define Global variable
+        global status_code
+        print "\n"
+        print "Scanning Now..."
+        response = requests.post(url+"query", json=data, headers=headers, verify=False)
+        response_json = json.loads(response.content)
+        status_code = response_json['response'][0]['status']['code']
+        print "\n"    
+        print "Message: " + response_json['response'][0]['status']['message']
+        print "\n"
+        print "Threat Emulation Results:"
+        print "Verdict: " + response_json['response'][0]['te']['images'][0]['report']['verdict']
+        print "Status: " +response_json['response'][0]['te']['images'][0]['status']
+        print "\n"
+        print "Anti-Virus Results:"
+        print "Message: " + response_json['response'][0]['av']['status']['message']
+        av_label = response_json['response'][0]['av']['status']['label']
+        print "Label: " + av_label
+        if av_label == "FOUND":
+            print "Signature Name: " + response_json['response'][0]['av']['malware_info']['signature_name']
+            print "Severity: " + str(response_json['response'][0]['av']['malware_info']['severity'])
+            print "Confidence: " + str(response_json['response'][0]['av']['malware_info']['confidence'])
+        print "\n"
+    except:
+        print "Query Failed. Please try again."
    
 
     #Checking to see if user wants to upload file.
