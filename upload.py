@@ -52,3 +52,4 @@ def upload(api_key, url, file_path, md5sum, filename):
     print "Message: " + response_json['response']['status']['message']
     print "\n"
     print "Make note of the MD5 sum to check progress: " + md5sum
+    print "\n"

@@ -3,6 +3,7 @@ import sys
 
 from scanfile import scanfile
 from check_quota import check_quota
+from check_uploaded import check_uploaded
 
 def menu(): 
     #Variables
@@ -27,6 +28,7 @@ def menu():
           scanfile(api_key, url)
         elif selection=="3":
           print("\nCheck Results of Uploaded Files")
+          check_uploaded(api_key, url)
         elif selection=="4":
           print("\nGoodbye")
           sys.exit() 
