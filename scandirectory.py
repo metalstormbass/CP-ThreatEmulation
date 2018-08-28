@@ -134,6 +134,7 @@ def scan_directory(api_key, url, file_path, report_path, rname):
 
 def get_directory(api_key, url):
     fn = []
+    print " This function will scan a directory and upload any unknown files. \n"
     path = raw_input("Enter directory to scan(Use forward slashes, even in Windows): ")
     if not path.endswith("/"):
         path = path + "/"   
