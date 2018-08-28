@@ -4,6 +4,7 @@ import sys
 from scanfile import scanfile
 from check_quota import check_quota
 from check_uploaded import check_uploaded
+from scandirectory import get_directory
 
 def menu(): 
     #Variables
@@ -16,8 +17,9 @@ def menu():
         print("""
         1. Check Threat Emulation Quota Status
         2. Scan a file
-        3. Check Results of Uploaded Files
-        4. Exit/Quit
+        3. Scan a directory
+        4. Check Results of Uploaded Files
+        5. Exit/Quit
         """)
         selection=raw_input("Select a task number: ")
         if selection=="1":
@@ -27,9 +29,12 @@ def menu():
           print("\nScan a file")
           scanfile(api_key, url)
         elif selection=="3":
+          print("\nScan a directory")
+          get_directory(api_key, url)       
+        elif selection=="4":
           print("\nCheck Results of Uploaded Files")
           check_uploaded(api_key, url)
-        elif selection=="4":
+        elif selection=="5":
           print("\nGoodbye")
           sys.exit() 
           selection = None

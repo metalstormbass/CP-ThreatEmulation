@@ -48,7 +48,7 @@ def check_uploaded(api_key, url):
         #Define Global variable
         global status_code
         print "\n"
-        print "Scanning Now..."
+        print "Checking Status Now..."
         response = requests.post(url+"query", json=data, headers=headers, verify=False)
         response_json = json.loads(response.content)
         status_code = response_json['response'][0]['status']['code']
@@ -70,3 +70,5 @@ def check_uploaded(api_key, url):
         print "\n"
     except:
         print "Query Failed. Please try again."
+    
+    return_to_menu()

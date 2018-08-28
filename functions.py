@@ -33,12 +33,27 @@ def return_to_menu():
     """)
     selection=raw_input("Select a task number: ")
     if selection=="1":
-      print "\n"
-      return
+        print "\n"
+
+        print'''
+   ____ _               _      ____       _       _                                
+  / ___| |__   ___  ___| | __ |  _ \ ___ (_)_ __ | |_                              
+ | |   | '_ \ / _ \/ __| |/ / | |_) / _ \| | '_ \| __|                             
+ | |___| | | |  __/ (__|   <  |  __/ (_) | | | | | |_                              
+  \____|_| |_|\___|\___|_|\_\ |_|   \___/|_|_| |_|\__|                             
+  _____ _                    _     _____                 _       _   _             
+ |_   _| |__  _ __ ___  __ _| |_  | ____|_ __ ___  _   _| | __ _| |_(_) ___  _ __  
+   | | | '_ \| '__/ _ \/ _` | __| |  _| | '_ ` _ \| | | | |/ _` | __| |/ _ \| '_ \ 
+   | | | | | | | |  __/ (_| | |_  | |___| | | | | | |_| | | (_| | |_| | (_) | | | |
+   |_| |_| |_|_|  \___|\__,_|\__| |_____|_| |_| |_|\__,_|_|\__,_|\__|_|\___/|_| |_|'''                                                                                                         
+        print "\n"
+        print "V 1.0 - Written by Michael Braun"
+        print "\n"
+        return
     elif selection=="2":
-      print("\nGoodbye")
-      sys.exit() 
-      selection = None
+          print("\nGoodbye")
+          sys.exit() 
+          selection = None
     else:
-       print("\n Not Valid Choice. Try again.")
+           print("\n Not Valid Choice. Try again.")
     
