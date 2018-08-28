@@ -36,7 +36,7 @@ def check_uploaded(api_key, url):
             #Get Path to file
             path = raw_input("Enter the file you wish to import. Use forward slashes, even on Windows: ")
             md5result = []
-            substr = "Make note of the MD5 sum to check progress:"
+            substr = "Info to check results: "
             while True:
                 try:
                     inFile = open(path)
@@ -52,7 +52,8 @@ def check_uploaded(api_key, url):
                     md5sum_split = line.split(" ")
                     md5sum = md5sum_split[-1]
                     md5sum = md5sum.strip()
-                    check(api_key, url, md5sum)
+                    file_path = md5sum_split[-2]
+                    check(api_key, url, md5sum, file_path)
             break
         elif selection=="3":
             print("\nGoodbye")
@@ -66,7 +67,7 @@ def check_uploaded(api_key, url):
  
     
     
-def check(api_key, url, md5sum):       
+def check(api_key, url, md5sum, file_path):       
     #Input user information into JSON
     data ={
         "request": [
@@ -91,14 +92,13 @@ def check(api_key, url, md5sum):
     headers = {"User-Agent": "python-api-wrapper", "Accept": "*/*","Content-Type": "application/json", "Content-Length": str(len(data)),"Authorization": api_key}
     
     #Send the request and parse the reply
-    print md5sum
+   
     try:
         #Define Global variable
         global status_code
         print "\n"
-        print "Checking Status Now..."
+        print "Checking Status for: " + file_path
         response = requests.post(url+"query", json=data, headers=headers, verify=False)
-        print response
         response_json = json.loads(response.content)
         status_code = response_json['response'][0]['status']['code']
         print "\n"    

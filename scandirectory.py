@@ -79,7 +79,7 @@ def scan_directory(api_key, url, file_path, report_path, rname):
             f.write('Signature Name: ' + response_json['response'][0]['av']['malware_info']['signature_name'] +'\n')
             f.write('Severity: ' + str(response_json['response'][0]['av']['malware_info']['severity']) +'\n')
             f.write('Confidence: ' + str(response_json['response'][0]['av']['malware_info']['confidence']) +'\n')
-            
+        f.write("Info to check results: "+ file_path + " " + md5sum +'\n\n\n')    
             
     except:
         f.write(file_path + ' Encountered and error. Results not available" \n')
@@ -126,7 +126,7 @@ def scan_directory(api_key, url, file_path, report_path, rname):
         response = requests.post(url+"upload", headers = headers, files=files)
         response_json = json.loads(response.content)
         f.write('Upload_Status: ' + response_json['response']['status']['message'] +'\n')
-        f.write("Make note of the MD5 sum to check progress: " + md5sum +'\n\n\n')
+        
         
     f.close()    
 
@@ -134,7 +134,7 @@ def scan_directory(api_key, url, file_path, report_path, rname):
 
 def get_directory(api_key, url):
     fn = []
-    print " This function will scan a directory and upload any unknown files. \n"
+    print "\nThis function will scan a directory and upload any unknown files. \n"
     path = raw_input("Enter directory to scan(Use forward slashes, even in Windows): ")
     if not path.endswith("/"):
         path = path + "/"   
@@ -144,7 +144,7 @@ def get_directory(api_key, url):
     
     rname = "report" + datetime.datetime.now().strftime("%Y_%m_%d_%H%M%S") + ".txt"
     f = open(report_path + rname, "w+")
-    f.write("Threat Emulation Report \n")
+    f.write("Threat Emulation Report \n\n")
     f.close()  
     for (dirpath, dirnames, filenames) in walk(path):
         fn.extend(filenames)
