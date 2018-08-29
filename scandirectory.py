@@ -124,10 +124,12 @@ def scan_directory(api_key, url, file_path, report_path, rname):
         headers = {"Authorization": api_key}
 
         #send request
-        response = requests.post(url+"upload", headers = headers, files=files)
-        response_json = json.loads(response.content)
-        f.write('Upload_Status: ' + response_json['response']['status']['message'] +'\n')
-        
+        try:
+            response = requests.post(url+"upload", headers = headers, files=files)
+            response_json = json.loads(response.content)
+            f.write('Upload_Status: ' + response_json['response']['status']['message'] +'\n')
+        except: 
+            f.write('There was a problem when uploading the file')
         
     f.close()    
 
