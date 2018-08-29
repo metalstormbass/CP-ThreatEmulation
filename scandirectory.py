@@ -4,13 +4,14 @@ import datetime
 import requests
 import json
 import time
-
+import os
 
 from functions import md5
 from functions import file_name
 from functions import return_to_menu
 from functions import file_extension
-from os import walk
+
+
 
 #Define Global Variable
 status_code = 0
@@ -133,7 +134,10 @@ def scan_directory(api_key, url, file_path, report_path, rname):
     
 
 def get_directory(api_key, url):
+    #Initialize Arrays
     fn = []
+    
+    
     print "\nThis function will scan a directory and upload any unknown files. \n"
     path = raw_input("Enter directory to scan(Use forward slashes, even in Windows): ")
     if not path.endswith("/"):
@@ -146,15 +150,24 @@ def get_directory(api_key, url):
     f = open(report_path + rname, "w+")
     f.write("Threat Emulation Report \n\n")
     f.close()  
-    for (dirpath, dirnames, filenames) in walk(path):
-        fn.extend(filenames)
-        i = 0
-        for filenames in fn:
-            file_path = path + fn[i]
-            scan_directory(api_key, url, file_path, report_path, rname)
-            i += 1
 
-        break
+    #Scan Recursively
+    for root, dirs, files in os.walk(path, topdown=False):
+        for name in files:
+            ftemp = os.path.join(root, name)
+            ftemp = ftemp.replace('\\', '/')
+            fn.append(ftemp)
+        for name in dirs:
+            temp = os.path.join(root, name)
+            ftemp = ftemp.replace('\\', '/')
+            fn.append(ftemp)
+    i = 0
+    for filenames in fn:
+        file_path = fn[i]
+        scan_directory(api_key, url, file_path, report_path, rname)
+        i += 1
+        
+        
     print "\n"
     print "Report stored in: " + report_path + rname
     print "\n"
