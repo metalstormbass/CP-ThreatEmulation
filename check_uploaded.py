@@ -30,7 +30,8 @@ def check_uploaded(api_key, url):
         if selection=="1":
             #Prompt User for MD5Hash
             md5sum = raw_input("Enter the MD5 sum: ")
-            check(api_key, url, md5sum)
+            file = ""
+            check(api_key, url, md5sum, file)
             break
         elif selection=="2":
             #Get Path to file
