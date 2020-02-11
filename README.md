@@ -1,5 +1,5 @@
 # CP-ThreatEmulation
-Requires Python 2.7
+Requires Python 3
 
 This is a script that utilizes the Check Point ThreatCloud API to scan files.
 
