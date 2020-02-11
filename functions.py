@@ -1,5 +1,3 @@
-#!/bin/python
-
 import hashlib
 import sys
 
@@ -26,16 +24,16 @@ def file_extension(filename):
 
 #Function to return to main menu
 def return_to_menu():
-    print "Return to main menu?"
+    print ("Return to main menu?")
     print("""
     1. Return to main menu
     2. Exit/Quit
     """)
-    selection=raw_input("Select a task number: ")
+    selection=input("Select a task number: ")
     if selection=="1":
-        print "\n"
+        print ("\n")
 
-        print'''
+        print('''
    ____ _               _      ____       _       _                                
   / ___| |__   ___  ___| | __ |  _ \ ___ (_)_ __ | |_                              
  | |   | '_ \ / _ \/ __| |/ / | |_) / _ \| | '_ \| __|                             
@@ -45,10 +43,10 @@ def return_to_menu():
  |_   _| |__  _ __ ___  __ _| |_  | ____|_ __ ___  _   _| | __ _| |_(_) ___  _ __  
    | | | '_ \| '__/ _ \/ _` | __| |  _| | '_ ` _ \| | | | |/ _` | __| |/ _ \| '_ \ 
    | | | | | | | |  __/ (_| | |_  | |___| | | | | | |_| | | (_| | |_| | (_) | | | |
-   |_| |_| |_|_|  \___|\__,_|\__| |_____|_| |_| |_|\__,_|_|\__,_|\__|_|\___/|_| |_|'''                                                                                                         
-        print "\n"
-        print "V 1.0 - Written by Michael Braun"
-        print "\n"
+   |_| |_| |_|_|  \___|\__,_|\__| |_____|_| |_| |_|\__,_|_|\__,_|\__|_|\___/|_| |_|''')                                                                                                         
+        print ("\n")
+        print ("V 1.1 - Written by Michael Braun")
+        print ("\n")
         return
     elif selection=="2":
           print("\nGoodbye")

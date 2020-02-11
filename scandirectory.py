@@ -1,5 +1,3 @@
-#!/bin/python
-
 import datetime
 import requests
 import json
@@ -60,8 +58,8 @@ def scan_directory(api_key, url, file_path, report_path, rname):
     try:
         #Define Global variable
         global status_code
-        print "\n"
-        print "Scanning " + file_path
+        print ("\n")
+        print ("Scanning " + file_path)
         response = requests.post(url+"query", json=data, headers=headers, verify=False)
         response_json = json.loads(response.content)
         status_code = response_json['response'][0]['status']['code']
@@ -140,11 +138,11 @@ def get_directory(api_key, url):
     fn = []
     
     
-    print "\nThis function will scan a directory and upload any unknown files. \n"
-    path = raw_input("Enter directory to scan(Use forward slashes, even in Windows): ")
+    print ("\nThis function will scan a directory and upload any unknown files. \n")
+    path = input("Enter directory to scan(Use forward slashes, even in Windows): ")
     if not path.endswith("/"):
         path = path + "/"   
-    report_path = raw_input("Enter directory to save report (Use forward slashes, even in Windows): ")  
+    report_path = input("Enter directory to save report (Use forward slashes, even in Windows): ")  
     if not report_path.endswith("/"):
         report_path = report_path + "/" 
     
@@ -170,9 +168,9 @@ def get_directory(api_key, url):
         i += 1
         
         
-    print "\n"
-    print "Report stored in: " + report_path + rname
-    print "\n"
+    print ("\n")
+    print ("Report stored in: " + report_path + rname)
+    print ("\n")
     return_to_menu()
 
 

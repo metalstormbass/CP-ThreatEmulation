@@ -1,5 +1,3 @@
-#!/bin/python
-
 import requests
 import json
 import time
@@ -14,7 +12,7 @@ def upload(api_key, url, file_path, md5sum, filename):
     #Retrieve Extension
     file_ext=file_extension(filename)
     
-    print filename
+    print (filename)
     #Input variables into JSON
     data ={
     "request": {
@@ -48,8 +46,8 @@ def upload(api_key, url, file_path, md5sum, filename):
     #send request
     response = requests.post(url+"upload", headers = headers, files=files)
     response_json = json.loads(response.content)
-    print "\n"
-    print "Message: " + response_json['response']['status']['message']
-    print "\n"
-    print "Make note of the MD5 sum to check progress: " + md5sum
-    print "\n"
+    print ("\n")
+    print ("Message: " + response_json['response']['status']['message'])
+    print ("\n")
+    print ("Make note of the MD5 sum to check progress: " + md5sum)
+    print ("\n")

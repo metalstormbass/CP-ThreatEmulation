@@ -9,11 +9,11 @@ from scandirectory import get_directory
 def menu(): 
     #Variables
     url = "https://te.checkpoint.com/tecloud/api/v1/file/"
-    api_key = raw_input("Enter your Check Point Threat Emulation API key: ")
+    api_key = input("Enter your Check Point Threat Emulation API key: ")
     #Menu Options
     selection=True
     while selection:
-        print "Select option: \n"
+        print ("Select option: \n")
         print("""
         1. Check Threat Emulation Quota Status
         2. Scan a file
@@ -21,7 +21,7 @@ def menu():
         4. Check Results of Uploaded Files
         5. Exit/Quit
         """)
-        selection=raw_input("Select a task number: ")
+        selection=input("Select a task number: ")
         if selection=="1":
           print("\nCheck Threat Emulation Quota Status")
           check_quota(api_key, url)
